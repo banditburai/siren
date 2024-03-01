@@ -1,13 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
 }
 
-:root {
+@layer base {
+  :root {
+    --background: 51, 46%, 86%; 
+    --foreground: 213, 11%, 21%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+ 
+    --primary: 24 9.8% 10%;
+    --primary-foreground: 60 9.1% 97.8%;
+ 
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+ 
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+ 
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+ 
+    --radius: 0.5rem;
+
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -17,27 +48,141 @@
   --sh-jsxliterals: #6266d1;
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
-}
+  }
+ 
+  .dark {
+    --background: 213, 11%, 21%;
+    --foreground: 51, 46%, 86%; 
+ 
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+ 
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+ 
+    --primary: 60 9.1% 97.8%;
+    --primary-foreground: 24 9.8% 10%;
+ 
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+ 
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+ 
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+ 
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 24 5.7% 82.9%;
 
-@media (prefers-color-scheme: dark) {
-  :root {
     --sh-class: #4c97f8;
     --sh-identifier: white;
     --sh-keyword: #f47067;
     --sh-string: #0fa295;
   }
-  html {
-    color-scheme: dark;
-  }
 }
-
+ 
 html {
+  color-scheme: light dark;
   min-width: 360px;
+  font-family: 'Pixel', sans-serif; /* Use a pixel font or fallback to sans-serif */
 }
 
+/* MDX Content Styling */
+.prose {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgb(var(--foreground));
+  background-color: rgb(var(--background));
+  padding: 2rem 1rem;
+}
+
+/* Headings */
+.prose h1 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+.prose p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+.prose a {
+  color: #47a3f3;
+  text-decoration: underline;
+  /* ... */
+}
+
+/* Images */
+.prose img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Lists */
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.25rem;
+}
+
+/* Code Styling */
+.prose code {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: 'Pixel', monospace;
+}
+
+.prose pre {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  padding-left: 1rem;
+  border-left: 4px solid #47a3f3;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+/* Prose Anchor Styles */
 .prose .anchor {
   @apply absolute invisible no-underline;
-
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -45,12 +190,8 @@ html {
   cursor: pointer;
 }
 
-.anchor:hover {
+.prose .anchor:hover {
   @apply visible;
-}
-
-.prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
@@ -62,45 +203,7 @@ html {
   @apply visible;
 }
 
-.prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900;
-}
-
-.prose code {
-  @apply px-1 py-0.5 rounded-lg;
-}
-
-.prose pre code {
-  @apply p-0;
-  border: initial;
-  line-height: 1.5;
-}
-
-.prose code span {
-  @apply font-medium;
-}
-
-.prose img {
-  /* Don't apply styles to next/image */
-  @apply m-0;
-}
-
-.prose h2,
-h3,
-h4 {
-  @apply font-medium tracking-tighter !important;
-}
-
-.prose strong {
-  @apply font-medium;
-}
-
-.prose > :first-child {
-  /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
-}
-
+/* Scrollbar Styles for pre element */
 pre::-webkit-scrollbar {
   display: none;
 }
@@ -110,7 +213,7 @@ pre {
   scrollbar-width: none; /* Firefox */
 }
 
-/* Remove Safari input shadow on mobile */
+/* Mobile Input Styles */
 input[type='text'],
 input[type='email'] {
   -webkit-appearance: none;
@@ -118,11 +221,13 @@ input[type='email'] {
   appearance: none;
 }
 
+/* Font Weights and Text Decoration */
 .prose .tweet a {
   text-decoration: inherit;
   font-weight: 500;
 }
 
+/* Table Styles */
 table {
   display: block;
   max-width: fit-content;
@@ -130,10 +235,24 @@ table {
   white-space: nowrap;
 }
 
-.prose .callout > p {
-  margin: 0 !important;
+/* Code Span Styles */
+.prose code span {
+  @apply font-medium;
 }
 
-.title {
-  text-wrap: balance;
+/* First Child Margin Overrides */
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

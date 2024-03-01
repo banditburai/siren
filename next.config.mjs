@@ -33,6 +33,14 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+        {
+            protocol: 'https',
+            hostname: 'niji6.promptsiren.com',           
+        },
+    ],
+},
 };
 
 const ContentSecurityPolicy = `

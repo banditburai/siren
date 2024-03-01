@@ -5,6 +5,7 @@ import { TweetComponent } from './tweet';
 import { highlight } from 'sugar-high';
 import React from 'react';
 import { LiveCode } from './sandpack';
+import { Protip } from './ui/protip';
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -163,6 +164,7 @@ let components = {
   code: Code,
   Table,
   LiveCode,
+  Protip,
 };
 
 export function CustomMDX(props) {
