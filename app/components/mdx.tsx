@@ -6,6 +6,7 @@ import { highlight } from 'sugar-high';
 import React from 'react';
 import { LiveCode } from './sandpack';
 import { Protip } from './ui/protip';
+import { QuizComponent } from './ui/quiz-component';
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -165,6 +166,7 @@ let components = {
   Table,
   LiveCode,
   Protip,
+  QuizComponent,
 };
 
 export function CustomMDX(props) {

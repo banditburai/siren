@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        'xs': '475px',         
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -39,6 +42,20 @@ const config = {
           },
           text: '#FFFFFF', // Example: white text for all protip types
           // Add other color definitions as needed
+        },
+        quiz: {
+          'border': '#333',
+          'hover-border': '#666',
+          'background': '#fff',
+          'hover-bg': '#e6e6e6',
+          'text': '#333',
+          'dark': {
+            'border': '#ece7cb', // border color for dark mode
+            'hover-border': '#b59f82', // hover border color for dark mode
+            'background': '#30353c', // background color for dark mode
+            'text': '#ece7cb', // text color for dark mode
+            'hover-bg': '#3a4048', 
+          },
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",

@@ -1,0 +1,111 @@
+/* Import Tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Base styling */
+* {
+  @apply box-border;
+}
+
+/* Fieldset and Legend Styling */
+.quiz-fieldset {
+  @apply border-2 border-quiz-border rounded-lg p-4 mb-4;
+}
+
+.dark .quiz-fieldset {
+  @apply border-quiz-dark-border;
+}
+
+.quiz-legend {
+  @apply text-lg text-quiz-text mb-2.5;
+}
+
+.dark .quiz-legend {
+  @apply text-quiz-dark-text;
+}
+
+/* Card Component Styling */
+.quiz-option-card {
+  @apply relative flex flex-col items-center justify-center rounded-lg border-2 border-quiz-border bg-quiz-background cursor-pointer my-2 transition-colors duration-300;
+}
+
+.quiz-option-card:hover {
+  @apply bg-quiz-hover-bg border-quiz-hover-border;
+}
+
+/* Card Content Styling - Adjust the padding and min-height as needed */
+.quiz-option-content {
+  @apply flex flex-col items-center justify-center rounded-lg p-2; /* Reduced padding */
+  min-height: 1rem; /* Adjusted min-height */
+}
+
+/* Image Styling within CardContent */
+.quiz-option-image {
+  @apply w-full h-auto object-cover rounded-t-lg;
+}
+
+/* Text Styling within CardContent */
+.quiz-option-text {
+  @apply text-lg font-bold text-retro-info uppercase inline-flex items-center justify-center rounded-md;
+  padding: 0.3rem 0.6rem;
+  text-shadow: 1px 1px #000;
+  /* Removed margin-top to reduce vertical spacing */
+  width: 100%;
+  text-align: center;
+}
+
+/* Shortcut Number Styling within CardContent */
+.quiz-option-shortcut {
+  @apply text-lg font-bold text-quiz-text rounded-full bg-transparent text-center absolute top-0 left-2 z-20;
+}
+
+.dark .quiz-option-shortcut {
+  @apply text-quiz-text;
+}
+
+
+
+/* Specificity increased for link styles to override global styles */
+.quiz-option-card a, .quiz-option-card a:hover, .quiz-option-card a:focus, .quiz-option-content a {
+  text-decoration: none !important; /* !important added to ensure override */
+}
+
+/* Default Grid Container Styling */
+.quiz-options-container {
+    display: grid;
+    gap: 1rem; /* Adjust the gap as needed */
+    margin: 0 auto;
+    /* Default to auto-fit with a minimum of 250px column width */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  }
+  
+  /* Use the gridColumns prop to override the default grid-template-columns */
+  .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* For medium screens, if gridColumns is greater than 3, set max to 3 */
+    .quiz-options-container.grid-cols-4,
+    .quiz-options-container.grid-cols-5 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 767px) {
+    /* For small screens, if gridColumns is greater than 2, set max to 2 */
+    .quiz-options-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 639px) {
+    /* For extra small screens, always use 1 column */
+    .quiz-options-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
