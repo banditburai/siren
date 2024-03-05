@@ -2,7 +2,7 @@ import "./global.css";
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans"
-import { SandpackCSS } from "./blog/[slug]/sandpack";
+import { SandpackCSS } from "./tuts/[slug]/sandpack";
 import { ThemeProvider } from "./components/theme-provider";
 import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";

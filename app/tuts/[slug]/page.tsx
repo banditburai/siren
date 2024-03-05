@@ -34,7 +34,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://leerob.io/blog/${post.slug}`,
+      url: `https://promptcel.com/tuts/${post.slug}`,
       images: [
         {
           url: ogImage,

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { serialize } from 'next-mdx-remote/serialize';
 
 type Metadata = {
   title: string;
@@ -8,7 +9,7 @@ type Metadata = {
   image?: string;
 };
 
-function parseFrontmatter(fileContent: string) {
+export function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   let match = frontmatterRegex.exec(fileContent);
   let frontMatterBlock = match![1];
