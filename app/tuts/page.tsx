@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import ViewCounter from './view-counter';
 import { getViewsCount } from 'app/db/queries';
 import { getBlogPosts } from 'app/db/blog';
+import FilterPills from '@/components/ui/filter-component';
 
 export const metadata = {
   title: 'Tuts',
@@ -17,7 +18,8 @@ export default function BlogPage() {
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
         read my test posts
       </h1>
-      {allBlogs
+      <FilterPills allBlogs={allBlogs} />
+      {/* {allBlogs
         .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
@@ -41,7 +43,7 @@ export default function BlogPage() {
               </Suspense>
             </div>
           </Link>
-        ))}
+        ))} */}
     </section>
   );
 }

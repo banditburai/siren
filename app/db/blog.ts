@@ -7,6 +7,7 @@ type Metadata = {
   publishedAt: string;
   summary: string;
   image?: string;
+  learningPath?: string;
 };
 
 export function parseFrontmatter(fileContent: string) {
