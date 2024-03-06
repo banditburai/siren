@@ -3,7 +3,7 @@ export default function ViewCounter({
   allViews,
 }: {
   slug: string;
-  allViews: {
+  allViews?: {
     slug: string;
     count: number;
   }[];
@@ -18,3 +18,5 @@ export default function ViewCounter({
     </p>
   );
 }
+
+
